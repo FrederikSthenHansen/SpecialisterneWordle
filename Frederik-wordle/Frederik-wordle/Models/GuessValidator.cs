@@ -6,13 +6,13 @@ namespace Frederik_wordle.Models
 /// </summary>
     public class GuessValidator
     {
-        string _guess;
-        string _answer;
-        bool _valid;
+        
+        
 
-        public bool isValidGuess(string incomingGuess)
+        public static bool isValidGuess(string incomingGuess)
         {
-            if (incomingGuess == null || incomingGuess.Length < 5) { _valid = false; }
+            bool _valid;
+            if (incomingGuess == null || incomingGuess.Length < 5) { return false; }
 
             // regex checks that the incomingGuess only contains letters
             else if (Regex.IsMatch(incomingGuess, @"^[a-zA-Z]+$")) { _valid = true; }   
