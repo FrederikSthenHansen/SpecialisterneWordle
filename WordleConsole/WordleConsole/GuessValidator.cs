@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Frederik_wordle.Models
+namespace WordleConsole
 {/// <summary>
 /// This class has 3 responsibilities: Check if the guess is legal, then check if it is perfect, and finally managing the helper classes that do more in depth guess processing,.
 /// </summary>
@@ -13,7 +13,7 @@ namespace Frederik_wordle.Models
         {
             bool _valid;
 
-            if (incomingGuess!=null && words.Contains(incomingGuess)) { _valid = true; }
+            if (incomingGuess!=null && words.Contains(incomingGuess.ToLower() ) ) { _valid = true; }
 
             
             //if (incomingGuess == null || incomingGuess.Length < 5) { return false; }
