@@ -94,6 +94,7 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
@@ -150,39 +151,42 @@
             <Button Grid.Column="6" Grid.Row="7"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
             <!--#endregion-->
 
+
+            <TextBlock x:Name="guessDisplay" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="9" Text="{Binding myGuess }"  />
+
             <!--#region On screen Keyboard-->
-            <Button x:Name="Q" Grid.Column="1" Grid.Row="9"   Content="Q" Click="Letterbutton_Click"/>
-            <Button x:Name="W" Grid.Column="2" Grid.Row="9"   Content="W" Click="Letterbutton_Click" />
-            <Button x:Name="E" Grid.Column="3" Grid.Row="9"  Content="E"  Click="Letterbutton_Click"/>
-            <Button x:Name="R" Grid.Column="4" Grid.Row="9"   Content="R"  Click="Letterbutton_Click"/>
-            <Button x:Name="T" Grid.Column="5" Grid.Row="9"   Content="T"  Click="Letterbutton_Click"/>
-            <Button x:Name="Y" Grid.Column="6" Grid.Row="9"   Content="Y"  Click="Letterbutton_Click"/>
-            <Button x:Name="U" Grid.Column="7" Grid.Row="9"   Content="U"  Click="Letterbutton_Click"/>
-            <Button x:Name="I" Grid.Column="8" Grid.Row="9"   Content="I"  Click="Letterbutton_Click"/>
-            <Button x:Name="O" Grid.Column="9" Grid.Row="9"   Content="O"  Click="Letterbutton_Click"/>
-            <Button x:Name="Backspace" Grid.Column="10" Grid.Row="9"   Content="Backspace" Width="60"  Click="Letterbutton_Click"/>
+            <Button x:Name="Q" Grid.Column="1" Grid.Row="10"   Content="Q" Click="Letterbutton_Click"/>
+            <Button x:Name="W" Grid.Column="2" Grid.Row="10"   Content="W" Click="Letterbutton_Click" />
+            <Button x:Name="E" Grid.Column="3" Grid.Row="10"  Content="E"  Click="Letterbutton_Click"/>
+            <Button x:Name="R" Grid.Column="4" Grid.Row="10"   Content="R"  Click="Letterbutton_Click"/>
+            <Button x:Name="T" Grid.Column="5" Grid.Row="10"   Content="T"  Click="Letterbutton_Click"/>
+            <Button x:Name="Y" Grid.Column="6" Grid.Row="10"   Content="Y"  Click="Letterbutton_Click"/>
+            <Button x:Name="U" Grid.Column="7" Grid.Row="10"   Content="U"  Click="Letterbutton_Click"/>
+            <Button x:Name="I" Grid.Column="8" Grid.Row="10"   Content="I"  Click="Letterbutton_Click"/>
+            <Button x:Name="O" Grid.Column="9" Grid.Row="10"   Content="O"  Click="Letterbutton_Click"/>
+            <Button x:Name="Backspace" Grid.Column="10" Grid.Row="10"   Content="Backspace" Width="60"  Click="Letterbutton_Click"/>
 
 
 
-            <Button x:Name="A" Grid.Column="1" Grid.Row="10"   Content="A"  Click="Letterbutton_Click"/>
-            <Button x:Name="S" Grid.Column="2" Grid.Row="10"   Content="S"  Click="Letterbutton_Click"/>
-            <Button x:Name="D" Grid.Column="3" Grid.Row="10"   Content="D"  Click="Letterbutton_Click"/>
-            <Button x:Name="F" Grid.Column="4" Grid.Row="10"   Content="F"  Click="Letterbutton_Click"/>
-            <Button x:Name="G" Grid.Column="5" Grid.Row="10"   Content="G"  Click="Letterbutton_Click"/>
-            <Button x:Name="H" Grid.Column="6" Grid.Row="10"   Content="H" Click="Letterbutton_Click"/>
-            <Button x:Name="J" Grid.Column="7" Grid.Row="10"   Content="J"  Click="Letterbutton_Click"/>
-            <Button x:Name="K" Grid.Column="8" Grid.Row="10"   Content="K"  Click="Letterbutton_Click"/>
-            <Button x:Name="P" Grid.Column="9" Grid.Row="10"   Content="P"  Click="Letterbutton_Click"/>
+            <Button x:Name="A" Grid.Column="1" Grid.Row="11"   Content="A"  Click="Letterbutton_Click"/>
+            <Button x:Name="S" Grid.Column="2" Grid.Row="11"   Content="S"  Click="Letterbutton_Click"/>
+            <Button x:Name="D" Grid.Column="3" Grid.Row="11"   Content="D"  Click="Letterbutton_Click"/>
+            <Button x:Name="F" Grid.Column="4" Grid.Row="11"   Content="F"  Click="Letterbutton_Click"/>
+            <Button x:Name="G" Grid.Column="5" Grid.Row="11"   Content="G"  Click="Letterbutton_Click"/>
+            <Button x:Name="H" Grid.Column="6" Grid.Row="11"   Content="H" Click="Letterbutton_Click"/>
+            <Button x:Name="J" Grid.Column="7" Grid.Row="11"   Content="J"  Click="Letterbutton_Click"/>
+            <Button x:Name="K" Grid.Column="8" Grid.Row="11"   Content="K"  Click="Letterbutton_Click"/>
+            <Button x:Name="P" Grid.Column="9" Grid.Row="11"   Content="P"  Click="Letterbutton_Click"/>
 
 
-            <Button x:Name="L" Grid.Column="1" Grid.Row="11"   Content="L" Click="Letterbutton_Click"/>
-            <Button x:Name="Z" Grid.Column="2" Grid.Row="11"   Content="Z"  Click="Letterbutton_Click"/>
-            <Button x:Name="X" Grid.Column="3" Grid.Row="11"   Content="X"  Click="Letterbutton_Click"/>
-            <Button x:Name="C" Grid.Column="4" Grid.Row="11"   Content="C"  Click="Letterbutton_Click"/>
-            <Button x:Name="V" Grid.Column="5" Grid.Row="11"   Content="V"  Click="Letterbutton_Click"/>
-            <Button x:Name="B" Grid.Column="6" Grid.Row="11"   Content="B"  Click="Letterbutton_Click"/>
-            <Button x:Name="N" Grid.Column="7" Grid.Row="11"   Content="N"  Click="Letterbutton_Click"/>
-            <Button x:Name="M" Grid.Column="8" Grid.Row="11"   Content="M"  Click="Letterbutton_Click"/>
+            <Button x:Name="L" Grid.Column="1" Grid.Row="12"   Content="L" Click="Letterbutton_Click"/>
+            <Button x:Name="Z" Grid.Column="2" Grid.Row="12"   Content="Z"  Click="Letterbutton_Click"/>
+            <Button x:Name="X" Grid.Column="3" Grid.Row="12"   Content="X"  Click="Letterbutton_Click"/>
+            <Button x:Name="C" Grid.Column="4" Grid.Row="12"   Content="C"  Click="Letterbutton_Click"/>
+            <Button x:Name="V" Grid.Column="5" Grid.Row="12"   Content="V"  Click="Letterbutton_Click"/>
+            <Button x:Name="B" Grid.Column="6" Grid.Row="12"   Content="B"  Click="Letterbutton_Click"/>
+            <Button x:Name="N" Grid.Column="7" Grid.Row="12"   Content="N"  Click="Letterbutton_Click"/>
+            <Button x:Name="M" Grid.Column="8" Grid.Row="12"   Content="M"  Click="Letterbutton_Click"/>
             
             <!--#endregion-->
 

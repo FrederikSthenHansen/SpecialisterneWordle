@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WordleWPF.ViewModel;
 
 namespace WordleWPF
 {
@@ -20,17 +21,24 @@ namespace WordleWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        WordleViewModel myViewModel;
+        public string myGuess;
         public MainWindow()
         {
             InitializeComponent();
+            myViewModel=new WordleViewModel();
+            myGuess = "";
+            guessDisplay.Text = myGuess;
         }
 
         private void Letterbutton_Click(object sender, RoutedEventArgs e)
         {
             //Comment sender.ToString().Split(':')[1] is the name of the letter 
             string letter=sender.ToString().Split(':')[1];
-            MessageBox.Show($"you just pressed {letter}");
+            string returnMessage= myViewModel.LetterPressed(letter);
+            myGuess = returnMessage;
+            MessageBox.Show(returnMessage);
+
         }
 
     }
