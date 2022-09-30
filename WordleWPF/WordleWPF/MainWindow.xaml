@@ -1,0 +1,197 @@
+﻿<Window x:Class="WordleWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WordleWPF"
+        mc:Ignorable="d"
+        Title="Frederik's Wordle" Height="450" Width="800">
+
+
+
+    <Page Foreground="#FFD92F2F">
+        <Page.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Width" Value="20"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="Background" Value="LightGray"/>
+                <!--<Setter Property="Click" Value="Letterbutton_Click"/>-->
+            </Style>
+
+            <Style x:Key="GreenButton" TargetType="Button">
+                <Setter Property="Width" Value="20"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="Background" Value="Green"/>
+            </Style>
+
+            <Style x:Key="YellowButton" TargetType="Button">
+                <Setter Property="Width" Value="20"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="Background" Value="Yellow"/>
+            </Style>
+
+            <Style x:Key="DarkButton" TargetType="Button">
+                <Setter Property="Width" Value="20"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="Background" Value="Black"/>
+            </Style>
+                
+            <Style TargetType="Rectangle">
+                <Setter Property="Width" Value="20"/>
+                <Setter Property="Height" Value="20"/>
+                
+            </Style> 
+
+        </Page.Resources>
+
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="Title" Grid.Column="1" Grid.Row="1" FontSize="19" Grid.ColumnSpan="9"> Frederik's Wordle
+            </TextBlock>
+
+            <TextBlock x:Name="Rules" Grid.Column="8" Grid.Row="2"  Grid.ColumnSpan="20">
+           
+            </TextBlock>
+
+
+            <!--#region Guess table -->
+            <Rectangle x:Name="gOnelOne" Grid.Column="1" Grid.Row="2"></Rectangle>
+            <Button Grid.Column="2" Grid.Row="2"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="3" Grid.Row="2"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="4" Grid.Row="2"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="5" Grid.Row="2"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="6" Grid.Row="2"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+
+            <Button Grid.Column="1" Grid.Row="3"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="2" Grid.Row="3"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="3" Grid.Row="3"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="4" Grid.Row="3"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="5" Grid.Row="3"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="6" Grid.Row="3"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+
+            <Button Grid.Column="1" Grid.Row="4"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="2" Grid.Row="4"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="3" Grid.Row="4"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="4" Grid.Row="4"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="5" Grid.Row="4"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="6" Grid.Row="4"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+
+            <Button Grid.Column="1" Grid.Row="5"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="2" Grid.Row="5"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="3" Grid.Row="5"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="4" Grid.Row="5"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="5" Grid.Row="5"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="6" Grid.Row="5"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+
+            <Button Grid.Column="1" Grid.Row="6"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="2" Grid.Row="6"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="3" Grid.Row="6"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="4" Grid.Row="6"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="5" Grid.Row="6"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="6" Grid.Row="6"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+
+            <Button Grid.Column="1" Grid.Row="7"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="2" Grid.Row="7"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="3" Grid.Row="7"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="4" Grid.Row="7"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="5" Grid.Row="7"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <Button Grid.Column="6" Grid.Row="7"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <!--#endregion-->
+
+            <!--#region On screen Keyboard-->
+            <Button x:Name="Q" Grid.Column="1" Grid.Row="9"   Content="Q" Click="Letterbutton_Click"/>
+            <Button x:Name="W" Grid.Column="2" Grid.Row="9"   Content="W" Click="Letterbutton_Click" />
+            <Button x:Name="E" Grid.Column="3" Grid.Row="9"  Content="E"  Click="Letterbutton_Click"/>
+            <Button x:Name="R" Grid.Column="4" Grid.Row="9"   Content="R"  Click="Letterbutton_Click"/>
+            <Button x:Name="T" Grid.Column="5" Grid.Row="9"   Content="T"  Click="Letterbutton_Click"/>
+            <Button x:Name="Y" Grid.Column="6" Grid.Row="9"   Content="Y"  Click="Letterbutton_Click"/>
+            <Button x:Name="U" Grid.Column="7" Grid.Row="9"   Content="U"  Click="Letterbutton_Click"/>
+            <Button x:Name="I" Grid.Column="8" Grid.Row="9"   Content="I"  Click="Letterbutton_Click"/>
+            <Button x:Name="O" Grid.Column="9" Grid.Row="9"   Content="O"  Click="Letterbutton_Click"/>
+            <Button x:Name="Backspace" Grid.Column="10" Grid.Row="9"   Content="Backspace" Width="60"  Click="Letterbutton_Click"/>
+
+
+
+            <Button x:Name="A" Grid.Column="1" Grid.Row="10"   Content="A"  Click="Letterbutton_Click"/>
+            <Button x:Name="S" Grid.Column="2" Grid.Row="10"   Content="S"  Click="Letterbutton_Click"/>
+            <Button x:Name="D" Grid.Column="3" Grid.Row="10"   Content="D"  Click="Letterbutton_Click"/>
+            <Button x:Name="F" Grid.Column="4" Grid.Row="10"   Content="F"  Click="Letterbutton_Click"/>
+            <Button x:Name="G" Grid.Column="5" Grid.Row="10"   Content="G"  Click="Letterbutton_Click"/>
+            <Button x:Name="H" Grid.Column="6" Grid.Row="10"   Content="H" Click="Letterbutton_Click"/>
+            <Button x:Name="J" Grid.Column="7" Grid.Row="10"   Content="J"  Click="Letterbutton_Click"/>
+            <Button x:Name="K" Grid.Column="8" Grid.Row="10"   Content="K"  Click="Letterbutton_Click"/>
+            <Button x:Name="P" Grid.Column="9" Grid.Row="10"   Content="P"  Click="Letterbutton_Click"/>
+
+
+            <Button x:Name="L" Grid.Column="1" Grid.Row="11"   Content="L" Click="Letterbutton_Click"/>
+            <Button x:Name="Z" Grid.Column="2" Grid.Row="11"   Content="Z"  Click="Letterbutton_Click"/>
+            <Button x:Name="X" Grid.Column="3" Grid.Row="11"   Content="X"  Click="Letterbutton_Click"/>
+            <Button x:Name="C" Grid.Column="4" Grid.Row="11"   Content="C"  Click="Letterbutton_Click"/>
+            <Button x:Name="V" Grid.Column="5" Grid.Row="11"   Content="V"  Click="Letterbutton_Click"/>
+            <Button x:Name="B" Grid.Column="6" Grid.Row="11"   Content="B"  Click="Letterbutton_Click"/>
+            <Button x:Name="N" Grid.Column="7" Grid.Row="11"   Content="N"  Click="Letterbutton_Click"/>
+            <Button x:Name="M" Grid.Column="8" Grid.Row="11"   Content="M"  Click="Letterbutton_Click"/>
+            
+            <!--#endregion-->
+
+
+
+        </Grid>
+
+    </Page>
+    
+    
+   
+</Window>
