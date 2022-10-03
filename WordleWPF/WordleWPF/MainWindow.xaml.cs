@@ -31,13 +31,16 @@ namespace WordleWPF
             guessDisplay.Text = myGuess;
         }
 
+        
+
         private void Letterbutton_Click(object sender, RoutedEventArgs e)
         {
             //Comment sender.ToString().Split(':')[1] is the name of the letter 
             string letter=sender.ToString().Split(':')[1];
             string returnMessage= myViewModel.LetterPressed(letter);
             myGuess = returnMessage;
-            MessageBox.Show(returnMessage);
+            guessDisplay.Text = returnMessage;
+            //MessageBox.Show(returnMessage);
 
         }
 

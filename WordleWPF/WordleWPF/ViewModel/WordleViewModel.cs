@@ -18,35 +18,37 @@ namespace WordleWPF.ViewModel
 
             if (input.Contains("Backspace"))
             {
-              
                 Ar = GM.Guess.ToList();
                 //remove last part of List
-                Ar.RemoveAt(Ar.Count-1);
-
-                
-               
-                
-                
+                Ar.RemoveAt(Ar.Count - 1);
             }
 
-            
-            else { GM.Guess = $"{GM.Guess}{input}"; Ar = GM.Guess.ToList(); }
-            
-            //reset guess before assigning Ar to it
-            GM.Guess = "";
 
+            else
+            {
+                if (GM.Guess.ToArray().Length < 5)
+                {
+                    GM.Guess = $"{GM.Guess}{input}"; 
+                }
+                Ar = GM.Guess.ToList();
+                //reset guess before assigning Ar to it
+                
+            }
+            GM.Guess = "";
             for (int i = 0; i < Ar.Count; i++)
             {
                 if (Ar[i] != ' ') { GM.Guess = $"{GM.Guess}{Ar[i]}"; }
 
             }
-            
             return $"{GM.Guess}";
         }
 
-        public WordleViewModel()
-        {
-                GM= new GameMaster();   
-        }
-    }
+            public WordleViewModel()
+            {
+                GM = new GameMaster();
+            }
+        
+    } 
 }
+    
+

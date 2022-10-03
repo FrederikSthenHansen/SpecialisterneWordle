@@ -10,7 +10,7 @@ namespace WordleWPF.Model
      /// Pick answer 
      /// </summary>
      /// <param name="options"></param>
-     /// <param name=""></param>
+     /// <param name="previous"></param>
      /// <returns> a string array with 2 strings in: </returns>
         public static string PickAnswer(List<string> options, Collection<string> previous)
         {
