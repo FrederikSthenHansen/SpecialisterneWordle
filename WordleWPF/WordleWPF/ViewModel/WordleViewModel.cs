@@ -58,6 +58,13 @@ namespace WordleWPF.ViewModel
             return ret;
         }
 
+
+        public async Task<bool> NewGame()
+        {
+            GM.newGame(false);
+            return true;
+        }
+
         public WordleViewModel()
         {
             GM = new GameMaster();

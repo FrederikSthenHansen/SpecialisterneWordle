@@ -53,6 +53,7 @@ namespace WordleWPF.Model
         public Dictionary<string, bool> HandleGuess(string incomingGuess)
         { Dictionary <string,bool> ret= new Dictionary<string,bool>();
             bool gameOver = false;
+            bool victory = false;
             bool validity=false;
             //Check om gættet kan overholder spillereglerne som error prevention
             if (GuessValidator.isValidGuess(incomingGuess, WordleWords) == true)
@@ -66,6 +67,7 @@ namespace WordleWPF.Model
                     /*Spilleren har gættet rigtig og vundet*/
                     //Console.WriteLine("Congratulations! you guessed the word!");
                     gameOver = true;
+                    victory = true;
                 }
 
                 //Gættet sammenlignes mere dybdegående med svaret for at de enkelte valg af bogstaver kan blive evalueret
@@ -80,8 +82,9 @@ namespace WordleWPF.Model
             ret.Add("validity", validity);
             //  ScreenPainter.UpdateScreen(guesses, _colours);
             if (guesses.Count == 6 && gameOver == false) { /*Console.WriteLine("Sorry, you lose.");*/ gameOver = true; }
-
+            ret.Add("victory", victory);
             ret.Add("gameOver", gameOver);
+
             //Finish by clearing the Guess property, so a new guess can be put in next turn
             Guess = "";
 

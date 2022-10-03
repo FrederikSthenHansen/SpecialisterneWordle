@@ -28,31 +28,38 @@ namespace WordleWPF
     public partial class MainWindow : Window
     {
         Dictionary<string, bool> _bools = new Dictionary<string, bool>();
-        List<string> _displayedGuesses= new List<string>();
+        List<string> _displayedGuesses = new List<string>();
         List<TextBox> boxList = new List<TextBox>();
+        List<Button> keyboard = new List<Button>();
         WordleViewModel myViewModel;
-        
+
         public string myGuess;
         public MainWindow()
         {
             InitializeComponent();
-            myViewModel=new WordleViewModel();
+            myViewModel = new WordleViewModel();
             myGuess = "";
-            
+
         }
 
-        private async void Submit_Click(object sender, RoutedEventArgs e) 
+        private async void Submit_Click(object sender, RoutedEventArgs e)
         {
-            _displayedGuesses.Add(myGuess);
-            
             updateGuessDisplay("");
 
             //
-           await updateLetterTable();
+            await updateLetterTable(false);
 
         }
 
-        private async Task< bool> updateLetterTable()
+
+        private async void newGame(object sender,RoutedEventArgs e)
+        {
+            _displayedGuesses.Clear();
+           await myViewModel.NewGame();
+            await updateLetterTable(true);
+        }
+
+        private async Task<bool> updateLetterTable(bool clear)
         {
             List<Object> modelValues = myViewModel.GuessSubmitted();
 
@@ -60,30 +67,44 @@ namespace WordleWPF
             int[,] colours = (int[,])modelValues[1];
 
             getAllTextboxes();
-
-            int box = 0;
-            if (bools["validity"] == true)
+            if (clear == false)
             {
-                for (int y = 0; y < _displayedGuesses.Count; y++)
+                int box = 0;
+                if (bools["validity"] == true)
                 {
-
-
-                    char[] guess = _displayedGuesses[y].ToCharArray();
-                    for (int x = 0; x < guess.Length; x++)
+                    _displayedGuesses.Add(myGuess);
+                    updateKeyBoardLetters();
+                    for (int y = 0; y < _displayedGuesses.Count; y++)
                     {
-                        fillBox(boxList[box], guess[x]);
-                        ColourBox(boxList[box], colours[y, x]);
 
-                        box++;
+
+                        char[] guess = _displayedGuesses[y].ToCharArray();
+                        for (int x = 0; x < guess.Length; x++)
+                        {
+                            fillBox(boxList[box], guess[x]);
+                            ColourBox(boxList[box], colours[y, x]);
+
+                            box++;
+                        }
                     }
 
-
+                    if (bools["gameOver"] == true)
+                    {
+                        if (bools["victory"] == true) { MessageBox.Show("Congratulations! You Guessed the word!"); }
+                        else { MessageBox.Show("Sorry, you lose.."); }
+                    }
                 }
+                else { MessageBox.Show("Wrong input. Please use only english 5 lettter words in the singlular!"); }
             }
+            else
+            { //Add Code here to reset the game table
+                   
+            }
+
             return true;
         }
 
-        private void fillBox(TextBox box, char letter )
+        private void fillBox(TextBox box, char letter)
         {
 
             box.Text = $"{letter}";
@@ -97,30 +118,55 @@ namespace WordleWPF
             }
         }
 
-        private void Letterbutton_Click(object sender, RoutedEventArgs e)
+        private void updateKeyBoardLetters()
         {
-            //Comment sender.ToString().Split(':')[1] is the name of the letter 
-            string letter=sender.ToString().Split(':')[1];
-            string returnMessage= myViewModel.LetterPressed(letter);
-            myGuess = returnMessage;
-            updateGuessDisplay(returnMessage);
-            //MessageBox.Show(returnMessage);
-
-        }
-
-        private void ColourBox(TextBox box, int colour)
-        {
-            switch (colour)
+            foreach (var child in myGui.Children)
             {
-                case 3: box.Background = Brushes.DarkGray; break;
-                case 1: box.Background = Brushes.Yellow; break;
-                case 2: box.Background = Brushes.Green; break;
-                default: break;
+                if (child is Button) { keyboard.Add((Button)child); }
+                foreach (var button in keyboard)
+                {
+                    if (button.Name != "Backspace") 
+                    {
+                        foreach (var guess in _displayedGuesses)
+                        {
+                            if (guess.Contains(button.Name))
+                            {
+                                button.Background = Brushes.DarkGray;
+                            }
+                        }
+                        
+                    }
+                }
             }
         }
 
-       
+        private void Letterbutton_Click(object sender, RoutedEventArgs e)
+        {
+                //Comment sender.ToString().Split(':')[1] is the name of the letter 
+                string letter = sender.ToString().Split(':')[1];
+                string returnMessage = myViewModel.LetterPressed(letter);
+                myGuess = returnMessage;
+                updateGuessDisplay(returnMessage);
+                //MessageBox.Show(returnMessage);
 
-        private void updateGuessDisplay(string text) { guessDisplay.Text = text; }
+        }
+            
+            
+
+            private void ColourBox(TextBox box, int colour)
+            {
+                switch (colour)
+                {
+                    case 3: box.Background = Brushes.DarkGray; break;
+                    case 1: box.Background = Brushes.Yellow; break;
+                    case 2: box.Background = Brushes.Green; break;
+                    default: break;
+                }
+            }
+
+
+
+            private void updateGuessDisplay(string text) { guessDisplay.Text = text; }
     }
-}
+} 
+
