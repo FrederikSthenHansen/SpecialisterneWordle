@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
+using System.Windows.Documents;
 
 namespace WordleWPF.Model
 {/// <summary>
@@ -10,7 +12,7 @@ namespace WordleWPF.Model
 
 
 
-        public static bool isValidGuess(string incomingGuess, string[] words)
+        public static bool isValidGuess(string incomingGuess, List<string> words)
         {
             bool _valid;
 

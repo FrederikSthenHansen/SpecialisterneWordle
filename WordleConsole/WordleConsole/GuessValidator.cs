@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 
 namespace WordleConsole
 {/// <summary>
@@ -9,7 +10,7 @@ namespace WordleConsole
         
         
 
-        public static bool isValidGuess(string incomingGuess, string[]words)
+        public static bool isValidGuess(string incomingGuess, List<string> words)
         {
             bool _valid;
 

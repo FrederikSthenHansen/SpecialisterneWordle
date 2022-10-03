@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace WordleWPF.Model
 {
@@ -8,7 +10,7 @@ namespace WordleWPF.Model
     public class GameMaster
     {
         string wordlePath = "";
-        string[] WordleWords;  /* System.IO.File.ReadAllLines($"{wordlePath}"); */
+        List<string> WordleWords;  /* System.IO.File.ReadAllLines($"{wordlePath}"); */
         Collection<string> previousAnswers = new Collection<string>();
         public string Guess = "";
         private string _answer = "";
@@ -79,7 +81,7 @@ namespace WordleWPF.Model
         public GameMaster()
         {
             wordlePath = "C:\\Users\\KOM\\Documents\\GitHub\\SpecialisterneWordle\\possible_words.txt";
-            WordleWords = System.IO.File.ReadAllLines(wordlePath);
+            WordleWords = System.IO.File.ReadAllLines(wordlePath).ToList();
             guesses = new Collection<string>();
         }
     }
