@@ -9,11 +9,11 @@
 
 
 
-    <Page Foreground="#FFD92F2F">
+    <Page Foreground="Black">
         <Page.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="20"/>
-                <Setter Property="Height" Value="20"/>
+                <Setter Property="MinWidth" Value="20"/>
+                <Setter Property="MinHeight" Value="20"/>
                 <Setter Property="Background" Value="LightGray"/>
                 <!--<Setter Property="Click" Value="Letterbutton_Click"/>-->
             </Style>
@@ -40,12 +40,23 @@
                 <Setter Property="Width" Value="20"/>
                 <Setter Property="Height" Value="20"/>
                 
-            </Style> 
+            </Style>
 
+
+            <Style TargetType="TextBox">
+                <Setter Property="MinWidth" Value="20"/>
+                <Setter Property="MinHeight" Value="20"/>
+                <Setter Property="MaxHeight" Value="40"/>
+                <Setter Property="MaxWidth" Value="40"/>
+                <Setter Property="Width" Value="auto"/>
+                <Setter Property="Height" Value="auto"/>
+                <Setter Property="IsReadOnly" Value="True"/>
+
+            </Style>
         </Page.Resources>
 
 
-        <Grid>
+        <Grid x:Name="myGui">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20"/>
@@ -95,6 +106,8 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
@@ -108,51 +121,51 @@
 
 
             <!--#region Guess table -->
-            <Rectangle x:Name="gOnelOne" Grid.Column="1" Grid.Row="2"></Rectangle>
-            <Button Grid.Column="2" Grid.Row="2"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="3" Grid.Row="2"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="4" Grid.Row="2"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="5" Grid.Row="2"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="6" Grid.Row="2"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <TextBox x:Name="c1l1" Grid.Column="1" Grid.Row="2" />
+            <TextBox x:Name="c2l1" Grid.Column="2" Grid.Row="2" />
+            <TextBox x:Name="c3l1" Grid.Column="3" Grid.Row="2"  />
+            <TextBox x:Name="c4l1" Grid.Column="4" Grid.Row="2"  />
+            <TextBox x:Name="c5l1" Grid.Column="5" Grid.Row="2"  />
 
-            <Button Grid.Column="1" Grid.Row="3"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="2" Grid.Row="3"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="3" Grid.Row="3"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="4" Grid.Row="3"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="5" Grid.Row="3"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="6" Grid.Row="3"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
 
-            <Button Grid.Column="1" Grid.Row="4"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="2" Grid.Row="4"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="3" Grid.Row="4"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="4" Grid.Row="4"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="5" Grid.Row="4"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="6" Grid.Row="4"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <TextBox x:Name="c1l2" Grid.Column="1" Grid.Row="3" />
+            <TextBox x:Name="c2l2" Grid.Column="2" Grid.Row="3" />
+            <TextBox x:Name="c3l2" Grid.Column="3" Grid.Row="3"   />
+            <TextBox x:Name="c4l2" Grid.Column="4" Grid.Row="3"   />
+            <TextBox x:Name="c5l2" Grid.Column="5" Grid.Row="3"   />
 
-            <Button Grid.Column="1" Grid.Row="5"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="2" Grid.Row="5"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="3" Grid.Row="5"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="4" Grid.Row="5"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="5" Grid.Row="5"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="6" Grid.Row="5"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
 
-            <Button Grid.Column="1" Grid.Row="6"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="2" Grid.Row="6"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="3" Grid.Row="6"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="4" Grid.Row="6"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="5" Grid.Row="6"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="6" Grid.Row="6"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+            <TextBox x:Name="c1l3" Grid.Column="1" Grid.Row="4" />
+            <TextBox x:Name="c2l3" Grid.Column="2" Grid.Row="4" />
+            <TextBox x:Name="c3l3" Grid.Column="3" Grid.Row="4"   />
+            <TextBox x:Name="c4l3" Grid.Column="4" Grid.Row="4"   />
+            <TextBox x:Name="c5l3" Grid.Column="5" Grid.Row="4"   />
 
-            <Button Grid.Column="1" Grid.Row="7"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="2" Grid.Row="7"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="3" Grid.Row="7"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="4" Grid.Row="7"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="5" Grid.Row="7"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
-            <Button Grid.Column="6" Grid.Row="7"  Width="20"  Height="20" Content="" Background="DimGray"  Foreground="AliceBlue" />
+
+            <TextBox x:Name="c1l4" Grid.Column="1" Grid.Row="5" />
+            <TextBox x:Name="c2l4" Grid.Column="2" Grid.Row="5" />
+            <TextBox x:Name="c3l4" Grid.Column="3" Grid.Row="5"   />
+            <TextBox x:Name="c4l4" Grid.Column="4" Grid.Row="5"   />
+            <TextBox x:Name="c5l4" Grid.Column="5" Grid.Row="5"   />
+
+
+            <TextBox x:Name="c1l5" Grid.Column="1" Grid.Row="6" />
+            <TextBox x:Name="c2l5" Grid.Column="2" Grid.Row="6" />
+            <TextBox x:Name="c3l5" Grid.Column="3" Grid.Row="6"   />
+            <TextBox x:Name="c4l5" Grid.Column="4" Grid.Row="6"   />
+            <TextBox x:Name="c5l5" Grid.Column="5" Grid.Row="6"   />
+
+
+            <TextBox x:Name="c1l6" Grid.Column="1" Grid.Row="7" />
+            <TextBox x:Name="c2l6" Grid.Column="2" Grid.Row="7" />
+            <TextBox x:Name="c3l6" Grid.Column="3" Grid.Row="7"   />
+            <TextBox x:Name="c4l6" Grid.Column="4" Grid.Row="7"   />
+            <TextBox x:Name="c5l6" Grid.Column="5" Grid.Row="7"   />
+
             <!--#endregion-->
 
 
-            <TextBlock x:Name="guessDisplay" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="9" Text="{Binding myGuess }"  />
+            <TextBlock x:Name="guessDisplay" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="6" Text="{Binding myGuess }"  />
 
             <!--#region On screen Keyboard-->
             <Button x:Name="Q" Grid.Column="1" Grid.Row="10"   Content="Q" Click="Letterbutton_Click"/>
@@ -164,7 +177,7 @@
             <Button x:Name="U" Grid.Column="7" Grid.Row="10"   Content="U"  Click="Letterbutton_Click"/>
             <Button x:Name="I" Grid.Column="8" Grid.Row="10"   Content="I"  Click="Letterbutton_Click"/>
             <Button x:Name="O" Grid.Column="9" Grid.Row="10"   Content="O"  Click="Letterbutton_Click"/>
-            <Button x:Name="Backspace" Grid.Column="10" Grid.Row="10"   Content="Backspace" Width="60"  Click="Letterbutton_Click"/>
+            <Button x:Name="Backspace" Grid.Column="10" Grid.Row="10"   Content="Backspace" MinWidth="60"  Click="Letterbutton_Click"/>
 
 
 
@@ -190,7 +203,7 @@
             
             <!--#endregion-->
 
-
+            <Button x:Name="submitGuess" Grid.Row="14" Grid.Column="3" Content="Submit Guess" Click="Submit_Click" MinWidth="80" Grid.ColumnSpan="5"/>
 
         </Grid>
 

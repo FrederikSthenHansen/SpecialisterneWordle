@@ -23,7 +23,7 @@ namespace WordleWPF.Model
             string[] alphabet = new string[5] { "ABCDE", "FGHIJ", "KLMNO", "PQRST", "UVWYZ" };
 
             //Console.;
-            Console.SetCursorPosition(0, 0);
+           // Console.SetCursorPosition(0, 0);
             Console.Write(floor);
             for (int row = 1; row < 13; row++)
             {
@@ -45,14 +45,14 @@ namespace WordleWPF.Model
                     Console.Write("#");
                     ColourPicker.pickColour(colours[drawGuess, 0]);
                     Console.Write(array[0]);
-                    ColourPicker.revertColour();
+                    //ColourPicker.revertColour();
                     Console.Write("#");
 
                     for (int x = 1; x < array.Length; x++)
                     {
                         ColourPicker.pickColour(colours[drawGuess, x]);
                         Console.Write(array[x]);
-                        ColourPicker.revertColour();
+                        //ColourPicker.revertColour();
                         Console.Write("#");
                     }
                     drawGuess++;
@@ -73,7 +73,7 @@ namespace WordleWPF.Model
                             { if (g.Contains(alphabetChar[x])) { ColourPicker.pickColour(4); } }
 
                             Console.Write(alphabetChar[x]);
-                            ColourPicker.revertColour();
+                           // ColourPicker.revertColour();
                         }
                         //Console.Write(alphabet[alphabetRow - 2]); 
                     }

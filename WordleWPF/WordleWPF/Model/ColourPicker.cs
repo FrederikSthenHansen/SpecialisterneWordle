@@ -1,27 +1,28 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace WordleWPF.Model
 {
     public static class ColourPicker
     {
-        public static void pickColour(int colour)
+        public static string pickColour(int colour)
         {
-
+            string ret = "";
             switch (colour)
             {
-                case 3: Console.ForegroundColor = ConsoleColor.Red; break;
-                case 1: Console.ForegroundColor = ConsoleColor.Yellow; break;
-                case 2: Console.ForegroundColor = ConsoleColor.Green; break;
-                case 4: Console.ForegroundColor = ConsoleColor.Black; break;
+                case 3: ret = "Brushes.DarkGray"; break;
+                case 1: ret = "Brushes.Yellow"; break;
+                case 2: ret = "Brushes.Green"; break;
                 default: break;
             }
-
+            return ret;
         }
-        public static void revertColour() { Console.ForegroundColor = ConsoleColor.Gray; }
+       // public static void revertColour() { Console.ForegroundColor = ConsoleColor.Gray; }
 
     }
 }

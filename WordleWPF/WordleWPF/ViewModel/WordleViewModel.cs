@@ -19,8 +19,12 @@ namespace WordleWPF.ViewModel
             if (input.Contains("Backspace"))
             {
                 Ar = GM.Guess.ToList();
-                //remove last part of List
-                Ar.RemoveAt(Ar.Count - 1);
+                if (GM.Guess != "") 
+                {
+                    //remove last part of List
+                    Ar.RemoveAt(Ar.Count - 1);
+                }
+                
             }
 
 
@@ -43,10 +47,22 @@ namespace WordleWPF.ViewModel
             return $"{GM.Guess}";
         }
 
-            public WordleViewModel()
-            {
-                GM = new GameMaster();
-            }
+        public List<Object>  GuessSubmitted()
+        {
+
+            List<Object> ret = new List<Object>();
+
+           ret.Add( GM.HandleGuess(GM.Guess));
+            ret.Add(GM._colours);
+           
+            return ret;
+        }
+
+        public WordleViewModel()
+        {
+            GM = new GameMaster();
+            GM.newGame(false);
+        }
         
     } 
 }

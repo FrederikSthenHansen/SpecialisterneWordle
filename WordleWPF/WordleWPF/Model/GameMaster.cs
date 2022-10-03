@@ -19,7 +19,7 @@ namespace WordleWPF.Model
 
         public void newGame(bool instructions)
         {
-            ColourPicker.revertColour();
+            //ColourPicker.revertColour();
             // Console.WriteLine("Starting new game");
             guesses = new Collection<string>();
             //Thread.Sleep(1000);
@@ -47,15 +47,18 @@ namespace WordleWPF.Model
                 //Console.ReadKey();
             }
             // Console.Clear();
-            ScreenPainter.UpdateScreen(guesses, _colours);
+            // ScreenPainter.UpdateScreen(guesses, _colours);
         }
 
-        public bool HandleGuess(string incomingGuess)
-        {
+        public Dictionary<string, bool> HandleGuess(string incomingGuess)
+        { Dictionary <string,bool> ret= new Dictionary<string,bool>();
             bool gameOver = false;
+            bool validity=false;
             //Check om gættet kan overholder spillereglerne som error prevention
             if (GuessValidator.isValidGuess(incomingGuess, WordleWords) == true)
             {
+                validity = true;
+                
                 Guess = incomingGuess.ToUpper();
                 guesses.Add(Guess);
                 if (Guess == _answer)
@@ -74,9 +77,15 @@ namespace WordleWPF.Model
                 }
             }
 
-            ScreenPainter.UpdateScreen(guesses, _colours);
+            ret.Add("validity", validity);
+            //  ScreenPainter.UpdateScreen(guesses, _colours);
             if (guesses.Count == 6 && gameOver == false) { /*Console.WriteLine("Sorry, you lose.");*/ gameOver = true; }
-            return gameOver;
+
+            ret.Add("gameOver", gameOver);
+            //Finish by clearing the Guess property, so a new guess can be put in next turn
+            Guess = "";
+
+            return ret;
         }
         public GameMaster()
         {
