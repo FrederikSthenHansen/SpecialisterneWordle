@@ -31,18 +31,7 @@ namespace WordleConsole
 
             if (instructions == true)
             {
-                Console.WriteLine("The rules are as follows: ");
-                Console.WriteLine(" - You have 6 tries to guess a 5 letter word. ");
-                Console.WriteLine("The word is NOT case sensitive.");
-                Console.WriteLine("(The same letter can feature multiple times in the same word). ");
-                Console.WriteLine(" - You can only guess with english words (with no plurals!) ");
-                Console.WriteLine("(your guess will be checked for viability before it is counted)");
-                Console.WriteLine(" - Upon submitting an answer it will appear in a table in coloured table");
-                Console.WriteLine("Green= The letter is correct, and in the correct positon");
-                Console.WriteLine("Yellow= The letter is correct, but in the wrong position");
-                Console.WriteLine("Red= The letter is not featured in the word");
-                Console.WriteLine("When you are ready to begin the game, press any key");
-                Console.ReadKey();
+                Teacher.instruct();
             }
             Console.Clear();
             ScreenPainter.UpdateScreen(guesses,_colours);
@@ -69,6 +58,12 @@ namespace WordleConsole
                     //First guess has to index as 0
                      _colours[guesses.Count-1, x] = colours[x];    
                 }
+            }
+
+            //if the guess is not valid
+            else
+            {
+                Teacher.scold();
             }
 
             ScreenPainter.UpdateScreen(guesses, _colours); 
