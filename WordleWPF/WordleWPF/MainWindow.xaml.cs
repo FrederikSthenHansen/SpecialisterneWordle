@@ -55,7 +55,7 @@ namespace WordleWPF
         private async void newGame(object sender,RoutedEventArgs e)
         {
             _displayedGuesses.Clear();
-            myViewModel.NewGame();
+           await myViewModel.NewGame();
             await updateLetterTable(true);
         }
 
