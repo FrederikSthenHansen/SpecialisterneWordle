@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using WordleWPF.Model;
 
@@ -49,13 +47,12 @@ namespace WordleWPF.ViewModel
 
         public List<Object>  GuessSubmitted()
         {
-
-            List<Object> ret = new List<Object>();
+           List<Object> ret = new List<Object>();
 
            ret.Add( GM.HandleGuess(GM.Guess));
-            ret.Add(GM._colours);
+           ret.Add(GM._colours);
            
-            return ret;
+           return ret;
         }
 
 

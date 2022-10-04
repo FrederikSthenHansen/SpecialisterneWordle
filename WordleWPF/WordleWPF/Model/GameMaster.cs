@@ -51,7 +51,8 @@ namespace WordleWPF.Model
         }
 
         public Dictionary<string, bool> HandleGuess(string incomingGuess)
-        { Dictionary <string,bool> ret= new Dictionary<string,bool>();
+        { 
+            Dictionary <string,bool> ret= new Dictionary<string,bool>();
             bool gameOver = false;
             bool victory = false;
             bool validity=false;
@@ -71,7 +72,7 @@ namespace WordleWPF.Model
                 }
 
                 //Gættet sammenlignes mere dybdegående med svaret for at de enkelte valg af bogstaver kan blive evalueret
-                int[] colours = WordComparer.CompareWords(Guess.ToCharArray(), _answer.ToCharArray());
+                int[] colours = WordComparer.CompareWords(Guess.ToCharArray(), _answer);
                 for (int x = 0; x < colours.Length; x++)
                 {
                     //First guess has to index as 0
@@ -81,7 +82,7 @@ namespace WordleWPF.Model
 
             ret.Add("validity", validity);
             //  ScreenPainter.UpdateScreen(guesses, _colours);
-            if (guesses.Count == 6 && gameOver == false) { /*Console.WriteLine("Sorry, you lose.");*/ gameOver = true; }
+            if (guesses.Count == 6 && gameOver == false) {  gameOver = true; }
             ret.Add("victory", victory);
             ret.Add("gameOver", gameOver);
 
