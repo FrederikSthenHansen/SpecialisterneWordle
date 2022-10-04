@@ -27,6 +27,7 @@
                 <Setter Property="Width" Value="auto"/>
                 <Setter Property="Height" Value="auto"/>
                 <Setter Property="IsReadOnly" Value="True"/>
+                <Setter Property="Background" Value="LightGray"/>
             </Style>
             
         </Page.Resources>

@@ -55,10 +55,16 @@ namespace WordleWPF
         private async void newGame(object sender,RoutedEventArgs e)
         {
             _displayedGuesses.Clear();
-           await myViewModel.NewGame();
+            myViewModel.NewGame();
             await updateLetterTable(true);
         }
 
+
+        /// <summary>
+        /// Updates the table displaying bprevious
+        /// </summary>
+        /// <param name="clear"> If true, will erase all content form table</param>
+        /// <returns></returns>
         private async Task<bool> updateLetterTable(bool clear)
         {
             List<Object> modelValues = myViewModel.GuessSubmitted();
@@ -69,24 +75,13 @@ namespace WordleWPF
             getAllTextboxes();
             if (clear == false)
             {
-                int box = 0;
+                
                 if (bools["validity"] == true)
                 {
                     _displayedGuesses.Add(myGuess);
                     updateKeyBoardLetters();
-                    for (int y = 0; y < _displayedGuesses.Count; y++)
-                    {
 
-
-                        char[] guess = _displayedGuesses[y].ToCharArray();
-                        for (int x = 0; x < guess.Length; x++)
-                        {
-                            fillBox(boxList[box], guess[x]);
-                            ColourBox(boxList[box], colours[y, x]);
-
-                            box++;
-                        }
-                    }
+                    loopTable(_displayedGuesses, boxList,colours);
 
                     if (bools["gameOver"] == true)
                     {
@@ -97,11 +92,54 @@ namespace WordleWPF
                 else { MessageBox.Show("Wrong input. Please use only english 5 lettter words in the singlular!"); }
             }
             else
-            { //Add Code here to reset the game table
-                   
+            { // reset the game table
+                //Quickly fill colour table with light grey 
+                for (int i = 0; i < 6; i++)
+                {
+                    _displayedGuesses.Add( " "); 
+                
+                    for (int s = 0; s < 5; s++) 
+                    { 
+                        colours[i,s] = 4;
+                    }
+                }
+                loopTable(_displayedGuesses, boxList,colours);
+                updateKeyBoardLetters();
             }
-
+            _displayedGuesses.Clear();
             return true;
+        }
+
+
+        private void loopTable(List<string> content, List<TextBox> target, int[,] colours)
+        {
+            int box = 0;
+            for (int y = 0; y < content.Count; y++)
+            {
+                char[] guess = content[y].ToCharArray();
+                for (int x = 0; x < guess.Length; x++)
+                {
+                    fillBox(boxList[box], guess[x]);
+                    ColourBox(boxList[box], colours[y, x]);
+
+                    box++;
+                }
+            }
+            if (content.Count < 6)
+            {
+                content.Add(" ");
+                for (int y = content.Count; y < 6;y++)
+                {       
+                    for (int x = 0; x < 5; x++)
+                    {
+                            fillBox(boxList[box], content[content.Count()-1].ToCharArray()[0]);
+                            ColourBox(boxList[box], 4);
+
+                            box++;
+                    } 
+                    
+                }
+            }
         }
 
         private void fillBox(TextBox box, char letter)
@@ -133,6 +171,7 @@ namespace WordleWPF
                             {
                                 button.Background = Brushes.DarkGray;
                             }
+                            else { button.Background = Brushes.LightGray; } 
                         }
                         
                     }
@@ -157,6 +196,7 @@ namespace WordleWPF
             {
                 switch (colour)
                 {
+                    case 4: box.Background = Brushes.LightGray;break;
                     case 3: box.Background = Brushes.DarkGray; break;
                     case 1: box.Background = Brushes.Yellow; break;
                     case 2: box.Background = Brushes.Green; break;

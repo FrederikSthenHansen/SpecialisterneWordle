@@ -24,7 +24,7 @@ namespace WordleWPF.Model
             char[] answerArray = answer.ToCharArray(); 
             for (int i = 0; i < 5; i++)
             {
-
+                
                 if (checkVersusLetterCount(guess[i], answerLetters) == true)
                 {
                     if (guess[i] == answerArray[i]) { myReturn[i] = 2; /*bogstavet er korrekt+korrekt placeret og bliver grønt*/ }
@@ -40,10 +40,11 @@ namespace WordleWPF.Model
 
 
         /// <summary>
-        /// Check if a letter occurs multiple times in the word to avoid flagging the same letter multiple times
+        /// Check if "c" occurs in the "check" to avoid flagging the same letter multiple times if it only occurs once. 
+        /// This is done by lowering the the int value in check by one, every time the letter is found.
         /// </summary>
         /// <param name="c"></param>
-        /// <returns></returns>
+        /// <returns>Returns a bool to indicate if "c" is present in "check"</returns>
         private static bool checkVersusLetterCount(char c, Dictionary<char, int> check) 
         {
             bool ret=false;

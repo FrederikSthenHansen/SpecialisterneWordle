@@ -18,6 +18,7 @@ namespace WordleWPF.Model
                 case 3: ret = "Brushes.DarkGray"; break;
                 case 1: ret = "Brushes.Yellow"; break;
                 case 2: ret = "Brushes.Green"; break;
+                case 4: ret = "Brushes.Gray"; break;
                 default: break;
             }
             return ret;
