@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -79,7 +80,7 @@ namespace WordleWPF
                 if (bools["validity"] == true)
                 {
                     _displayedGuesses.Add(myGuess);
-                    updateKeyBoardLetters();
+                    updateKeyBoardLetters(clear);
 
                     loopTable(_displayedGuesses, boxList,colours);
 
@@ -96,7 +97,7 @@ namespace WordleWPF
                 //Quickly fill colour table with light grey 
                 for (int i = 0; i < 6; i++)
                 {
-                    _displayedGuesses.Add( " "); 
+                    _displayedGuesses.Add( "     "); 
                 
                     for (int s = 0; s < 5; s++) 
                     { 
@@ -104,7 +105,7 @@ namespace WordleWPF
                     }
                 }
                 loopTable(_displayedGuesses, boxList,colours);
-                updateKeyBoardLetters();
+                updateKeyBoardLetters(clear);
             }
             //remove the blank string
             _displayedGuesses.Remove(_displayedGuesses[_displayedGuesses.Count()-1]);
@@ -153,30 +154,33 @@ namespace WordleWPF
         {
             foreach (var child in myGui.Children)
             {
-                if (child is TextBox) { boxList.Add((TextBox)child); }
+                if (child is TextBox && boxList.Contains(child as TextBox)== false) { boxList.Add((TextBox)child); }
             }
         }
 
-        private void updateKeyBoardLetters()
+        private void updateKeyBoardLetters(bool clear)
         {
             foreach (var child in myGui.Children)
             {
-                if (child is Button) { keyboard.Add((Button)child); }
-                foreach (var button in keyboard)
+                if (child is not Button) { continue; }
+
+
+                if (clear == true) { (child as Button).Background = Brushes.LightGray; }
+
+                if ((child as Button).Name != "Backspace")
                 {
-                    if (button.Name != "Backspace") 
+                    foreach (var guess in _displayedGuesses)
                     {
-                        foreach (var guess in _displayedGuesses)
+                        if (guess.Contains((child as Button).Name))
                         {
-                            if (guess.Contains(button.Name))
-                            {
-                                button.Background = Brushes.DarkGray;
-                            }
-                            else { button.Background = Brushes.LightGray; } 
+                            (child as Button).Background = Brushes.DarkGray;
                         }
-                        
+
                     }
                 }
+
+
+
             }
         }
 
