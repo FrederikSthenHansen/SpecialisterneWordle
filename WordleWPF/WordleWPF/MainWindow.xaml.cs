@@ -46,7 +46,7 @@ namespace WordleWPF
         {
             updateGuessDisplay("");
 
-            //
+            //Attempt at error prevention: if you click submit when the game is over, it causes a crash by indexing outside of all collections
             if (_displayedGuesses.Count() >= 6 && !_displayedGuesses.Contains(" ")) { MessageBox.Show("The game is over. Click 'New Game' to play again."); }
             else { await updateLetterTable(false); }
 
