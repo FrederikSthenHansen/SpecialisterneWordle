@@ -106,7 +106,8 @@ namespace WordleWPF
                 loopTable(_displayedGuesses, boxList,colours);
                 updateKeyBoardLetters();
             }
-            _displayedGuesses.Clear();
+            //remove the blank string
+            _displayedGuesses.Remove(_displayedGuesses[_displayedGuesses.Count()-1]);
             return true;
         }
 
