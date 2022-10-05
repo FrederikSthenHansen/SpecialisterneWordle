@@ -31,7 +31,6 @@ namespace WordleWPF
         Dictionary<string, bool> _bools = new Dictionary<string, bool>();
         List<string> _displayedGuesses = new List<string>();
         List<TextBox> boxList = new List<TextBox>();
-        List<Button> keyboard = new List<Button>();
         WordleViewModel myViewModel;
 
         public string myGuess;
@@ -48,7 +47,8 @@ namespace WordleWPF
             updateGuessDisplay("");
 
             //
-            await updateLetterTable(false);
+            if (_displayedGuesses.Count() >= 6 && !_displayedGuesses.Contains(" ")) { MessageBox.Show("The game is over. Click 'New Game' to play again."); }
+            else { await updateLetterTable(false); }
 
         }
 
@@ -97,7 +97,7 @@ namespace WordleWPF
                 //Quickly fill colour table with light grey 
                 for (int i = 0; i < 6; i++)
                 {
-                    _displayedGuesses.Add( "     "); 
+                    _displayedGuesses.Add("     "); 
                 
                     for (int s = 0; s < 5; s++) 
                     { 
@@ -154,7 +154,7 @@ namespace WordleWPF
         {
             foreach (var child in myGui.Children)
             {
-                if (child is TextBox && boxList.Contains(child as TextBox)== false) { boxList.Add((TextBox)child); }
+                if (child is TextBox && boxList.Contains(child)== false) { boxList.Add((TextBox)child); }
             }
         }
 

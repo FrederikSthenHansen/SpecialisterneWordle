@@ -22,6 +22,11 @@ namespace WordleWPF.Model
 
             Random random = new Random();
             int i = random.Next(0, options.Count - 1);
+
+            //Add the removed options back to to the wordList
+            foreach (string answer in previous) { options.Add(answer); }    
+            
+
             return options[i];
 
         }
