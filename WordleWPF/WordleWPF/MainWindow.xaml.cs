@@ -39,7 +39,6 @@ namespace WordleWPF
             InitializeComponent();
             myViewModel = new WordleViewModel();
             myGuess = "";
-
         }
 
         private async void Submit_Click(object sender, RoutedEventArgs e)
@@ -193,7 +192,7 @@ namespace WordleWPF
             string letter = sender.ToString().Split(':')[1];
             string returnMessage = myViewModel.LetterPressed(letter);
             myGuess = returnMessage;
-            updateGuessDisplay(returnMessage);
+           // updateGuessDisplay(returnMessage);
             //MessageBox.Show(returnMessage);
 
         }

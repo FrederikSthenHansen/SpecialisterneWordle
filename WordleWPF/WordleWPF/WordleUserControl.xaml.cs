@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfWordleV2
+namespace WordleWPF
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for WordleUserControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class WordleUserControl : UserControl
     {
-        public MainWindow()
+        public WordleUserControl()
         {
             InitializeComponent();
         }
