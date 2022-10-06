@@ -52,7 +52,7 @@ namespace WordleConsole
                 }
 
                 //Gættet sammenlignes mere dybdegående med svaret for at de enkelte valg af bogstaver kan blive evalueret
-                 int[] colours= WordComparer.CompareWords(Guess.ToCharArray(), _answer.ToCharArray());
+                 int[] colours= WordComparer.CompareWords(Guess.ToCharArray(), _answer);
                 for(int x= 0; x < colours.Length; x++)
                 {
                     //First guess has to index as 0

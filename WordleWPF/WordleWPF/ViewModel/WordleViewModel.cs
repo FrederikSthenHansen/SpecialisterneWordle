@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace WordleWPF.ViewModel
     {
         Dictionary<string, bool> _bools = new Dictionary<string, bool>();
         List<string> _displayedGuesses = new List<string>();
+        ObservableCollection<string> _displayedGuesses2 = new ObservableCollection<string>();
         List<TextBox> boxList = new List<TextBox>();
         string myGuess;
        
