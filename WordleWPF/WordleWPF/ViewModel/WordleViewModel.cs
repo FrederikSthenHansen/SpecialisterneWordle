@@ -1,15 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Input;
 using WordleWPF.Model;
 
 
 namespace WordleWPF.ViewModel
 {
-    internal class WordleViewModel
+    internal class WordleViewModel:ViewModelBase
     {
-        GameMaster GM;
+        Dictionary<string, bool> _bools = new Dictionary<string, bool>();
+        List<string> _displayedGuesses = new List<string>();
+        List<TextBox> boxList = new List<TextBox>();
+        string myGuess;
+       
+
+        public ICommand LetterPressCommand { get; }
+        
+        GameMaster GM; //Remember to remove this GM
+
         public string LetterPressed(string input)
         {
             List<char> Ar;
@@ -61,6 +73,9 @@ namespace WordleWPF.ViewModel
             GM.newGame(false);
             return true;
         }
+
+
+        
 
         public WordleViewModel()
         {
