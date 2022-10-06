@@ -142,7 +142,7 @@
             <!--#endregion-->
 
 
-            <TextBlock x:Name="guessDisplay" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="6"/>
+            <TextBlock x:Name="guessDisplay" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="6" Text="{Binding MyGuess}"/>
 
             <!--#region On screen Keyboard-->
             <Button x:Name="Q" Grid.Column="1" Grid.Row="10"   Content="Q"  Command="{Binding LetterPressCommand}" />

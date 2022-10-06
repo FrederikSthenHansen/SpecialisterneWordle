@@ -18,10 +18,13 @@ namespace WordleWPF.ViewModel
         List<string> _displayedGuesses = new List<string>();
         ObservableCollection<string> _displayedGuesses2 = new ObservableCollection<string>();
         List<TextBox> boxList = new List<TextBox>();
-        string myGuess;
-       
+        string _myGuess;
+        public string MyGuess
+        { get { return _myGuess; } set { _myGuess = value; OnPropertyChanged(nameof(MyGuess)); } }
 
-        public ICommand LetterPressCommand { get /*{ return new LetterPressCommand(); }*/; }
+        
+
+        public ICommand LetterPressCommand { get; }
         
         GameMaster GM; //Remember to remove this GM
 
@@ -39,7 +42,6 @@ namespace WordleWPF.ViewModel
                 }
                 
             }
-
 
             else
             {
@@ -84,6 +86,9 @@ namespace WordleWPF.ViewModel
         {
             GM = new GameMaster();
             GM.newGame(false);
+
+            LetterPressCommand = new LetterPressCommand();
+            _myGuess = "";
         }
         
     } 

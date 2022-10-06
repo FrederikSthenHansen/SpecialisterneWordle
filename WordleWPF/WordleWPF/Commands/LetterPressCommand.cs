@@ -33,13 +33,14 @@ namespace WordleWPF.Commands
         /// 
         /// </summary>
         /// <param name="guess">This is the unsubmitted guess in its current form</param>
-        public LetterPressCommand(string guess)
+        public LetterPressCommand(/*string guess*/)
         {
-            _guess = guess; 
+            //_guess = guess; 
         }
         
         private List<char> handleInputLetter(string input)
         {List <char> Ar;
+
             if (input.Contains("Backspace"))
             {
                 Ar = _guess.ToList();
@@ -50,7 +51,6 @@ namespace WordleWPF.Commands
                 }
             }
 
-
             else
             {
                 if (_guess.ToArray().Length < 5)
@@ -58,7 +58,6 @@ namespace WordleWPF.Commands
                     _guess = $"{_guess}{input}";
                 }
                 Ar = _guess.ToList();
-
             }
             return Ar;
         }

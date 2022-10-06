@@ -108,7 +108,10 @@ namespace WordleWPF
                 updateKeyBoardLetters(clear);
             }
             //remove the blank string
-            _displayedGuesses.Remove(_displayedGuesses[_displayedGuesses.Count()-1]);
+            
+            if (_displayedGuesses.Count == 0) { return true; }
+           int indexToRemove = _displayedGuesses.Count-1; 
+            _displayedGuesses.Remove(_displayedGuesses[indexToRemove]);
             return true;
         }
 
@@ -186,18 +189,18 @@ namespace WordleWPF
 
         private void Letterbutton_Click(object sender, RoutedEventArgs e)
         {
-                //Comment sender.ToString().Split(':')[1] is the name of the letter 
-                string letter = sender.ToString().Split(':')[1];
-                string returnMessage = myViewModel.LetterPressed(letter);
-                myGuess = returnMessage;
-                updateGuessDisplay(returnMessage);
-                //MessageBox.Show(returnMessage);
+            //Comment sender.ToString().Split(':')[1] is the name of the letter 
+            string letter = sender.ToString().Split(':')[1];
+            string returnMessage = myViewModel.LetterPressed(letter);
+            myGuess = returnMessage;
+            updateGuessDisplay(returnMessage);
+            //MessageBox.Show(returnMessage);
 
         }
-            
-            
 
-            private void ColourBox(TextBox box, int colour)
+
+
+        private void ColourBox(TextBox box, int colour)
             {
                 switch (colour)
                 {

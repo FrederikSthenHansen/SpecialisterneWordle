@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WordleWPF.Commands;
 using WordleWPF.Model;
 using WordleWPF.ViewModel;
 
@@ -20,6 +21,7 @@ namespace WordleWPF
             base.OnStartup(e);
             GameMaster GM= new GameMaster();
             WordleViewModel myViewModel = new WordleViewModel();
+            
         }
     }
 }
