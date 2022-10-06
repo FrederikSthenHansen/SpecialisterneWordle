@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
+using WordleWPF.Commands;
 using WordleWPF.Model;
 
 
@@ -20,7 +21,7 @@ namespace WordleWPF.ViewModel
         string myGuess;
        
 
-        public ICommand LetterPressCommand { get; }
+        public ICommand LetterPressCommand { get /*{ return new LetterPressCommand(); }*/; }
         
         GameMaster GM; //Remember to remove this GM
 
