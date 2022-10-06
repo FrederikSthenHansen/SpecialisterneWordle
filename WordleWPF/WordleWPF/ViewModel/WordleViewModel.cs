@@ -20,7 +20,7 @@ namespace WordleWPF.ViewModel
         List<TextBox> boxList = new List<TextBox>();
         string _myGuess;
         public string MyGuess
-        { get { return _myGuess; } set { _myGuess = value; OnPropertyChanged(nameof(MyGuess)); } }
+        { get { return _myGuess; } set { _myGuess = value; OnPropertyChanged(MyGuess); } }
 
         
 
@@ -59,6 +59,11 @@ namespace WordleWPF.ViewModel
                 if (Ar[i] != ' ') { GM.Guess = $"{GM.Guess}{Ar[i]}"; }
 
             }
+
+            // for the refactioring
+            MyGuess = GM.Guess;
+
+            // Old code
             return $"{GM.Guess}";
         }
 
@@ -86,6 +91,7 @@ namespace WordleWPF.ViewModel
         {
             GM = new GameMaster();
             GM.newGame(false);
+            
 
             LetterPressCommand = new LetterPressCommand();
             _myGuess = "";

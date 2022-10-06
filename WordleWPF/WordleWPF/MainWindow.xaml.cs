@@ -37,6 +37,8 @@ namespace WordleWPF
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
+
             myViewModel = new WordleViewModel();
             myGuess = "";
         }

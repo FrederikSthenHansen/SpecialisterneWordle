@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WordleWPF"
+        xmlns:local="clr-namespace:WordleWPF" xmlns:viewmodel="clr-namespace:WordleWPF.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:WordleViewModel}"
         mc:Ignorable="d"
         Title="Frederik's Wordle" Height="450" Width="800">
 
@@ -142,7 +142,7 @@
             <!--#endregion-->
 
 
-            <TextBlock x:Name="guessDisplay" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="6" Text="{Binding Path= MyGuess}"/>
+            <TextBlock x:Name="guessDisplay" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="6" Text="{Binding Path =MyGuess}"/>
 
             <!--#region On screen Keyboard-->
             <Button x:Name="Q" Grid.Column="1" Grid.Row="10"   Content="Q"  Command="{Binding LetterPressCommand}" />
