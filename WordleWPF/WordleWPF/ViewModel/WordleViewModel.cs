@@ -19,6 +19,7 @@ namespace WordleWPF.ViewModel
         ObservableCollection<string> _displayedGuesses2 = new ObservableCollection<string>();
         List<TextBox> boxList = new List<TextBox>();
         string _myGuess;
+        public string DisplayAnswer;
         public string MyGuess
         { get { return _myGuess; } set { _myGuess = value; OnPropertyChanged(MyGuess); } }
 
@@ -26,7 +27,7 @@ namespace WordleWPF.ViewModel
 
         public ICommand LetterPressCommand { get; }
         
-        GameMaster GM; //Remember to remove this GM
+        GameMaster myGameMaster; //Remember to remove this GM
 
         public string LetterPressed(string input)
         {
@@ -34,8 +35,8 @@ namespace WordleWPF.ViewModel
 
             if (input.Contains("Backspace"))
             {
-                Ar = GM.Guess.ToList();
-                if (GM.Guess != "") 
+                Ar = myGameMaster.Guess.ToList();
+                if (myGameMaster.Guess != "") 
                 {
                     //remove last part of List
                     Ar.RemoveAt(Ar.Count - 1);
@@ -45,42 +46,44 @@ namespace WordleWPF.ViewModel
 
             else
             {
-                if (GM.Guess.ToArray().Length < 5)
+                if (myGameMaster.Guess.ToArray().Length < 5)
                 {
-                    GM.Guess = $"{GM.Guess}{input}"; 
+                    myGameMaster.Guess = $"{myGameMaster.Guess}{input}"; 
                 }
-                Ar = GM.Guess.ToList();
+                Ar = myGameMaster.Guess.ToList();
                 //reset guess before assigning Ar to it
                 
             }
-            GM.Guess = "";
+            myGameMaster.Guess = "";
             for (int i = 0; i < Ar.Count; i++)
             {
-                if (Ar[i] != ' ') { GM.Guess = $"{GM.Guess}{Ar[i]}"; }
+                if (Ar[i] != ' ') { myGameMaster.Guess = $"{myGameMaster.Guess}{Ar[i]}"; }
 
             }
 
             // for the refactioring
-            MyGuess = GM.Guess;
+            MyGuess = myGameMaster.Guess;
 
             // Old code
-            return $"{GM.Guess}";
+            return $"{myGameMaster.Guess}";
         }
 
-        public List<Object>  GuessSubmitted()
+        public GuessHandlingResultList  GuessSubmitted()
         {
            List<Object> ret = new List<Object>();
 
-           ret.Add( GM.HandleGuess(GM.Guess));
-           ret.Add(GM._colours);
+           Dictionary<string,bool>dictionary= myGameMaster.HandleGuess(myGameMaster.Guess);
            
-           return ret;
+
+            GuessHandlingResultList myReturn = new GuessHandlingResultList(dictionary,myGameMaster._colours);
+           
+           return myReturn;
         }
 
 
         public async Task<bool> NewGame()
         {
-            GM.newGame(false);
+            myGameMaster.newGame(false);
             return true;
         }
 
@@ -89,8 +92,9 @@ namespace WordleWPF.ViewModel
 
         public WordleViewModel()
         {
-            GM = new GameMaster();
-            GM.newGame(false);
+            myGameMaster = new GameMaster();
+            myGameMaster.newGame(false);
+            DisplayAnswer = myGameMaster.DisplayAnswer;
             
 
             LetterPressCommand = new LetterPressCommand();

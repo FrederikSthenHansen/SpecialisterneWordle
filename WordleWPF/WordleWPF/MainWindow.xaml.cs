@@ -69,42 +69,43 @@ namespace WordleWPF
         /// <returns></returns>
         private async Task<bool> updateLetterTable(bool clear)
         {
-            List<Object> modelValues = myViewModel.GuessSubmitted();
+            ViewModel.GuessHandlingResultList myResults = myViewModel.GuessSubmitted();
 
-            Dictionary<string, bool> bools = (Dictionary<string, bool>)modelValues[0];
-            int[,] colours = (int[,])modelValues[1];
+            
+            int[,] colours = myResults.colours;
 
             getAllTextboxes();
             if (clear == false)
             {
                 
-                if (bools["validity"] == true)
+                if (myResults.GameStates["validity"] == true)
                 {
                     _displayedGuesses.Add(myGuess);
                     updateKeyBoardLetters(clear);
 
                     loopTable(_displayedGuesses, boxList,colours);
 
-                    if (bools["gameOver"] == true)
+                    if (myResults.GameStates["gameOver"] == true)
                     {
-                        if (bools["victory"] == true) { MessageBox.Show("Congratulations! You Guessed the word!"); }
-                        else { MessageBox.Show("Sorry, you lose.."); }
+                        if (myResults.GameStates["victory"] == true) { MessageBox.Show("Congratulations! You Guessed the word!"); }
+                        else { MessageBox.Show($"Sorry, you lose... The word you were trying to guess was '{myViewModel.DisplayAnswer.ToLower()}'."); }
                     }
                 }
                 else { MessageBox.Show("Wrong input. Please use only english 5 lettter words in the singlular!"); }
             }
             else
             { // reset the game table
-                //Quickly fill colour table with light grey 
-                //for (int i = 0; i < 6; i++)
-                //{
-                //    _displayedGuesses.Add("     "); // kig på den her
-                
+              //Quickly fill colour table with light grey 
+              //for (int i = 0; i < 6; i++)
+              //{
+              //    _displayedGuesses.Add("     "); // kig på den her
+
                 //    for (int s = 0; s < 5; s++) 
                 //    { 
                 //        colours[i,s] = 4;
                 //    }
                 //}
+                _displayedGuesses.Clear();
                 loopTable(_displayedGuesses, boxList,colours);
                 updateKeyBoardLetters(clear);
             }

@@ -14,6 +14,7 @@ namespace WordleWPF.Model
         Collection<string> previousAnswers = new Collection<string>();
         public string Guess = "";
         private string _answer = "";
+        public string DisplayAnswer { get { return _answer; }  }    
         Collection<string> guesses;
         public int[,] _colours;
 
