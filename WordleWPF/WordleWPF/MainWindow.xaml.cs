@@ -96,15 +96,15 @@ namespace WordleWPF
             else
             { // reset the game table
                 //Quickly fill colour table with light grey 
-                for (int i = 0; i < 6; i++)
-                {
-                    _displayedGuesses.Add("     "); 
+                //for (int i = 0; i < 6; i++)
+                //{
+                //    _displayedGuesses.Add("     "); // kig på den her
                 
-                    for (int s = 0; s < 5; s++) 
-                    { 
-                        colours[i,s] = 4;
-                    }
-                }
+                //    for (int s = 0; s < 5; s++) 
+                //    { 
+                //        colours[i,s] = 4;
+                //    }
+                //}
                 loopTable(_displayedGuesses, boxList,colours);
                 updateKeyBoardLetters(clear);
             }
@@ -194,7 +194,7 @@ namespace WordleWPF
             string letter = sender.ToString().Split(':')[1];
             string returnMessage = myViewModel.LetterPressed(letter);
             myGuess = returnMessage;
-           // updateGuessDisplay(returnMessage);
+            updateGuessDisplay(returnMessage);
             //MessageBox.Show(returnMessage);
 
         }

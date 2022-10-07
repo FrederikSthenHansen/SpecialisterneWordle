@@ -5,6 +5,10 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordleWPF", "WordleWPF\WordleWPF.csproj", "{67435464-A62C-4EA1-AC97-498117C9C452}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1x", "TestProject1x\TestProject1x.csproj", "{FAEF3DE1-AC0B-4F71-808F-18D5B5E7A5A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{8F896386-EA46-4B22-A69E-DC677BD3D8FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{67435464-A62C-4EA1-AC97-498117C9C452}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67435464-A62C-4EA1-AC97-498117C9C452}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67435464-A62C-4EA1-AC97-498117C9C452}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAEF3DE1-AC0B-4F71-808F-18D5B5E7A5A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAEF3DE1-AC0B-4F71-808F-18D5B5E7A5A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAEF3DE1-AC0B-4F71-808F-18D5B5E7A5A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAEF3DE1-AC0B-4F71-808F-18D5B5E7A5A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F896386-EA46-4B22-A69E-DC677BD3D8FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F896386-EA46-4B22-A69E-DC677BD3D8FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F896386-EA46-4B22-A69E-DC677BD3D8FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F896386-EA46-4B22-A69E-DC677BD3D8FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
